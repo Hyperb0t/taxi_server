@@ -6,11 +6,11 @@ class TaxiGroup(models.Model):
     from_place = models.CharField(max_length=30)
     to_place = models.CharField(max_length=30)
     def __str__(self):
-        return self.taxiplaceholder_set
+        return self.taxiplaceholder_set.all().__str__() + self.leave_time + self.from_place + self.to_place
 
 class TaxiPlaceholder(models.Model):
-    sitting_places_amount = models.PositiveSmallIntegerField
+    sitting_places_amount = models.PositiveSmallIntegerField(default=1)
     vk_id = models.CharField(max_length=10, primary_key=True)
-    group = models.ForeignKey(TaxiGroup, on_delete=models.CASCADE)
+    group = models.ForeignKey(TaxiGroup, on_delete=models.CASCADE, default=None)
     def __str__(self):
-        return self.sitting_places_amount + ' place ' + self.vk_id + ' in group'
+        return str(self.sitting_places_amount) + ' place ' + self.vk_id + ' in group'
