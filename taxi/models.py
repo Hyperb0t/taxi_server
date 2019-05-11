@@ -10,7 +10,7 @@ class TaxiGroup(models.Model):
 
 class TaxiPlaceholder(models.Model):
     sitting_places_amount = models.PositiveSmallIntegerField
-    vk_id = models.CharField(max_length=10)
+    vk_id = models.CharField(max_length=10, primary_key=True)
     group = models.ForeignKey(TaxiGroup, on_delete=models.CASCADE)
     def __str__(self):
         return self.sitting_places_amount + ' place ' + self.vk_id + ' in group'

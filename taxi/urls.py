@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^leavegroup/(?P<man_id>[^$]+)/$', views.leavegroup),
     url(r'^releasegroup/(?P<group_id>[0-9]+)/$', views.releasegroup),
     url(r'^getgroupstate/(?P<group_id>[0-9]+)/$', views.getgroupstate),
-    url(r'^creategroup/(?P<man_id>[^$]+)/$', views.creategroup)
+    url(r'^creategroup/(?P<man_id>[^$]+)_(?P<from_pl>[^$]+)_(?P<to_pl>[^$]+)_(?P<time>[^$]+)/$', views.creategroup)
 ]
